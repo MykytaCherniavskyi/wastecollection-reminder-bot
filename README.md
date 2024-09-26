@@ -3,7 +3,8 @@
 
 This project implements a **WasteCollection bot reminder** using serverless architecture on AWS. It allows users to get reminders via a Telegram bot, with the infrastructure managed using AWS services such as Lambda, API Gateway, DynamoDB, and EventBridge Scheduler. The project infrastructure is written using **TypeScript AWS CDK**.
 
-![Project Architecture](./path_to_image/uml_schema.jpeg)
+![Project Architecture](https://github.com/user-attachments/assets/7a994f37-80de-4482-bca3-4ec3197fd922)
+
 
 ## Project Overview
 
