@@ -12,8 +12,8 @@ The above diagram showcases the flow of the WasteCollection bot:
 1. The **User** interacts with the bot via **Telegram**.
 2. **Telegram Bot API** sends the user's request to an **HTTP API Gateway**.
 3. The **API Gateway** triggers an AWS **Lambda function**, which processes the logic.
-4. **DynamoDB** stores user data such as reminder schedules.
-5. **EventBridge Scheduler** triggers the reminders based on the stored schedules, invoking the Lambda function to notify users via Telegram.
+4. **DynamoDB** stores user data.
+5. **EventBridge Scheduler** trigger the Lambda function to notify users via Telegram about tomorrow upcoming waste collection.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ Follow these steps to successfully deploy the WasteCollection Bot Reminder:
    bash set-webhook.sh
    ```
 
-Once deployed, the bot will be able to send waste collection reminders to users at scheduled times based on the data stored in DynamoDB and the EventBridge Scheduler triggers.
+Once deployed, the bot will be able to send waste collection reminders to users via the EventBridge Scheduler triggers. Also user could interact with bot via several exists commands.
 
 ## Notes
 
