@@ -11,7 +11,7 @@ fi
 
 # Ask for API Gateway URL
 # Get the API Gateway URL from CDK output
-read -p "Enter your API Gateway URL: " api_url
+read -p "Enter your API Gateway URL (check your console after 'cdk deploy'): " api_url
 
 if [ -z "$api_url" ]; then
     echo "Error: Failed to retrieve API Gateway URL. Make sure you have deployed the CDK stack."
