@@ -321,17 +321,18 @@ const handleCronRequest = async () => {
 
 export const handler = async (event: any) => {
   try {
-    const requestTelegramToken = event.telegramToken || event.headers?.['x-telegram-bot-api-secret-token'];
-
-    if (SECRET_TOKEN && requestTelegramToken !== SECRET_TOKEN) {
-      throw new Error(`Not correct secret token. Recieved token - ${requestTelegramToken}`);
-    }
     const isCron = event.isCron;
 
     if (isCron) {
         await handleCronRequest();
         return DEFAULT_RESPONSE;
     }
+    const requestTelegramToken = event.telegramToken || event?.headers?.['x-telegram-bot-api-secret-token'];
+
+    if (SECRET_TOKEN && requestTelegramToken !== SECRET_TOKEN) {
+      throw new Error(`Not correct secret token. Recieved token - ${requestTelegramToken}`);
+    }
+
     // for prod enouch JSON.parse(event?.body)
     const body = event?.body ? JSON.parse(event?.body) : event;
     const message: TelegramMessage = body?.message || event?.message;
